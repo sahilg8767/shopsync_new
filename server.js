@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Added to parse URL-encoded bodies Support for form-data
 
 // Database Connection
 connectDB();
@@ -23,6 +24,7 @@ connectDB();
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/ocr', require('./src/routes/ocrRoutes'));
+app.use('/api/compare', require('./src/routes/compareRoutes'));
 
 app.get('/', (req, res) => {
   res.send('ShopSync Backend is running');

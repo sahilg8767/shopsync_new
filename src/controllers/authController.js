@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 exports.register = async (req, res) => {
+    console.log("[DEBUG] Register route hit. Expected email and password. Received Body:", req.body);
     const { email, password } = req.body;
 
     if (!email || !password) {

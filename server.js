@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const connectDB = require('./src/config/db');
 const authRoutes = require('./src/routes/authRoutes');
 const productRoutes = require('./src/routes/productRoutes');
+const cron = require('node-cron');
+const syncProducts = require('./src/utils/syncProducts');
 
 dotenv.config();
 console.log('MONGO_URI is:', process.env.MONGO_URI ? 'DEFINED' : 'UNDEFINED');
@@ -19,6 +21,12 @@ app.use(express.urlencoded({ extended: true })); // Added to parse URL-encoded b
 
 // Database Connection
 connectDB();
+
+// Schedule daily product sync job (runs at 00:00 or midnight)
+cron.schedule('0 0 * * *', () => {
+  console.log('Executing scheduled background product sync...');
+  syncProducts();
+});
 
 // Routes
 app.use('/api/auth', authRoutes);

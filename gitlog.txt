@@ -1,0 +1,5 @@
+﻿04d02dea9318de1125185433b5d32015133c69d2 Reapply "feat: Replace product data with Indian groceries and add /seed endpoint"
+f8e4c8d0ad46143675442ab144ca4f25efa7613b Revert "feat: Replace product data with Indian groceries and add /seed endpoint"
+ce7e0d09b8274782040d5da87daabc5cecb6c691 feat: Replace product data with Indian groceries and add /seed endpoint
+08f6ee60589461bf142659105512151e7e6e382c feat: Add mock price comparison logic to OCR endpoint
+c08a3404dc6a85447087eaab18310f884cb64d6c feat: Add mock price comparison output to OCR endpoint
